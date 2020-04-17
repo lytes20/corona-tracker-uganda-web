@@ -24,7 +24,7 @@ function Header() {
           </IconButton>
         </div>
         <div>
-          <h2>Uganda Corona Tracker</h2>
+          <h2>Corona Virus Tracker - Uganda</h2>
         </div>
       </div>
 
