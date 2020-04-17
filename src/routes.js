@@ -1,14 +1,20 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Cases from './components/client/Cases';
 import Home from './Home';
+import Donations from './components/client/Donations';
+import CoronaFAQs from './components/client/CoronaFAQs';
+import Header from './components/shared/Header';
+
 const routes = () => {
   return (
     <div>
       <BrowserRouter>
+        <Header />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/donations" exact component={Donations} />
+          <Route path="/corona-faqs" exact component={CoronaFAQs} />
         </Switch>
       </BrowserRouter>
     </div>

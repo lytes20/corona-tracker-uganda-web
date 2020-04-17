@@ -9,16 +9,13 @@ import Past14DaysChart from './components/client/Past14DaysChart';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <div className="Home-container">
-        <div className="Home-main">
-          <DateTime />
-          <Cases />
-          <Past14DaysChart />
-        </div>
-        <div className="Home-side"></div>
+    <div className="Home-container">
+      <div className="Home-main">
+        <DateTime />
+        <Cases />
+        <Past14DaysChart />
       </div>
+      <div className="Home-side"></div>
     </div>
   );
 }

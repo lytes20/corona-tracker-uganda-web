@@ -9,7 +9,7 @@ import '../../assets/styles/header.scss';
 
 const menuItems = [
   { name: 'Donations', path: '/donations' },
-  { name: 'FAQs', path: '/faqs' },
+  { name: 'FAQs', path: '/corona-faqs' },
 ];
 function Header() {
   return (
