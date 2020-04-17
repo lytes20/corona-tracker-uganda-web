@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './Home';
-import Donations from './components/client/Donations';
+import Donations from './components/client/donations/Donations';
 import CoronaFAQs from './components/client/CoronaFAQs';
 import Header from './components/shared/Header';
 

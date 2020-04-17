@@ -1,0 +1,24 @@
+.Donations-container {
+  display: flex;
+  padding: 20px;
+  height: 100%;
+  background-color: #f6f8f9;
+
+  .Donations-main {
+    flex: 1;
+  }
+  .Donations-side {
+    margin-left: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 25em;
+    .Donations-side-item {
+      margin-right: 10px;
+    }
+    .Donations-side-actions-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

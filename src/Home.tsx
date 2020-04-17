@@ -2,7 +2,6 @@ import React from 'react';
 
 import './assets/styles/home.scss';
 
-import Header from './components/shared/Header';
 import DateTime from './components/client/DateTime';
 import Cases from './components/client/Cases';
 import Past14DaysChart from './components/client/Past14DaysChart';
