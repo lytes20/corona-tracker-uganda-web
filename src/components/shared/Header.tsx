@@ -8,7 +8,6 @@ import IconButton from '@material-ui/core/IconButton';
 import '../../assets/styles/header.scss';
 
 const menuItems = [
-  { name: 'Cases', path: '/cases' },
   { name: 'Donations', path: '/donations' },
   { name: 'FAQs', path: '/faqs' },
 ];

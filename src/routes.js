@@ -9,7 +9,6 @@ const routes = () => {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/cases" exact component={Cases} />
         </Switch>
       </BrowserRouter>
     </div>
