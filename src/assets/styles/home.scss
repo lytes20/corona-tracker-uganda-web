@@ -1,0 +1,24 @@
+.Home-container {
+  display: flex;
+  padding: 20px;
+  height: 100%;
+  background-color: #f6f8f9;
+
+  .Home-main {
+    flex: 1;
+  }
+  .Home-side {
+    margin-left: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 25em;
+    .Home-side-item {
+      margin-right: 10px;
+    }
+    .Home-side-actions-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
