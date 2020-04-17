@@ -1,11 +1,14 @@
 import React from 'react';
-import Header from './components/shared/Header'
+import Header from './components/shared/Header';
+import DateTime from './components/client/DateTime';
+import Cases from './components/client/Cases';
 
 function App() {
   return (
     <div>
       <Header />
-      <h1>Welcome to the Uganda corona virus tracker application</h1>
+      <DateTime />
+      <Cases/>
     </div>
   );
 }
