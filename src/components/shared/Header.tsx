@@ -11,11 +11,12 @@ const menuItems = [
   { name: 'Donations', path: '/donations' },
   { name: 'FAQs', path: '/corona-faqs' },
 ];
-function Header() {
+
+function Header(props) {
   return (
     <div className="Header-container">
       {/* Header item  */}
-      <div className="Header-item Header-logo-container">
+      <div className="Header-item Header-logo-container" onClick={() => (window.location.href = '/')}>
         {/* logo container */}
         <div>
           <IconButton>

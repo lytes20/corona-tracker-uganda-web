@@ -8,6 +8,10 @@
     display: flex;
     align-items: center;
     flex: 1;
+    cursor: pointer;
+    .MuiSvgIcon-root{
+      color: white;
+    }
   }
   .Header-item {
     margin-right: 10px;
