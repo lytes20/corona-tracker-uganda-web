@@ -22,3 +22,7 @@ h1 {
 h2 {
   font-size: 18px;
 }
+
+.Error {
+  color: red;
+}
