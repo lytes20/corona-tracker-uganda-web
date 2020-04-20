@@ -12,6 +12,7 @@ function Donations(props) {
       {/* Donations main container  */}
       <div className="Donations-main">
         <div className="Donations-heading Donations-head-item">
+          <h1>Donations is still under development</h1>
           <h1>
             Donations <span>({donations.length})</span>
           </h1>
