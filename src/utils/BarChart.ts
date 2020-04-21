@@ -89,8 +89,12 @@ export default class BarChart {
   }
 
   drawChart() {
+    let barCharWrapper = d3.select('.BarChart-wrapper');
+    if (barCharWrapper._groups[0][0] === null) {
+      return;
+    }
     // reset the width
-    WIDTH = parseInt(d3.select('.BarChart-wrapper').style('width'), 10) - MARGIN.LEFT - MARGIN.RIGHT;
+    WIDTH = parseInt(barCharWrapper.style('width'), 10) - MARGIN.LEFT - MARGIN.RIGHT;
 
     // set the svg dimensions
     this.svg.attr('width', WIDTH + MARGIN.LEFT + MARGIN.RIGHT);
