@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import '../../assets/styles/chart.scss'
 import BarChart from '../../utils/BarChart';
 
 class Past14DaysChart extends Component {
@@ -11,7 +13,7 @@ class Past14DaysChart extends Component {
     return (
       <div>
         <h2>Past 14 days Chart</h2>
-        <div ref={this.barChart}></div>
+        <div className="BarChart-wrapper" ref={this.barChart}></div>
       </div>
     );
   }

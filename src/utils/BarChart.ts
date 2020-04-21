@@ -2,11 +2,16 @@ import * as d3 from 'd3';
 
 const url = 'https://corona.lmao.ninja/v2/historical/Uganda?lastdays=14';
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 60, RIGHT: 10 };
-const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
+let WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 350 - MARGIN.TOP - MARGIN.BOTTOM;
 export default class BarChart {
+  svg;
+  xScale;
+  xAxisCall;
+  xAxisElement;
+  rects;
   constructor(element) {
-    const svg = d3
+    this.svg = d3
       .select(element)
       .append('svg')
       .attr('width', '100%')
@@ -28,22 +33,23 @@ export default class BarChart {
           .scaleLinear()
           .domain([d3.min(data, (d) => d.cases) * 0.95, d3.max(data, (d) => d.cases)])
           .range([HEIGHT, 0]);
-        const x = d3
+        this.xScale = d3
           .scaleBand()
           .domain(data.map((d) => d.date))
           .range([0, WIDTH])
           .padding(0.4);
 
         // Add x-axis
-        const xAxisCall = d3.axisBottom(x);
-        svg.append('g').attr('transform', `translate(0, ${HEIGHT})`).call(xAxisCall);
+        this.xAxisCall = d3.axisBottom(this.xScale);
+        this.xAxisElement = this.svg.append('g').attr('transform', `translate(0, ${HEIGHT})`);
+        this.xAxisElement.call(this.xAxisCall);
 
         //   Add y-axis
         const yAxisCall = d3.axisLeft(y);
-        svg.append('g').call(yAxisCall);
+        this.svg.append('g').call(yAxisCall);
 
         //   Add y-axis label
-        svg
+        this.svg
           .append('text')
           .attr('x', -(HEIGHT / 2))
           .attr('y', -40)
@@ -53,32 +59,53 @@ export default class BarChart {
           .text('Number of confirmed cases');
 
         //   Add x-axis label
-        svg
+        this.svg
           .append('text')
           .attr('x', WIDTH / 2)
           .attr('y', HEIGHT + 40)
           .attr('text-anchor', 'middle')
           .attr('fill', '#43506a')
+          .attr('class', 'Xaxis-label')
           .text('Dates');
 
         // Add bars to the svg
-        const rects = svg.selectAll('rect').data(data);
-        rects
+        this.rects = this.svg.selectAll('rect').data(data);
+        this.rects
           .enter()
           .append('rect')
-          .attr('x', (d) => x(d.date))
+          .attr('x', (d) => this.xScale(d.date))
           .attr('y', (d) => y(d.cases))
-          .attr('width', x.bandwidth)
+          .attr('width', this.xScale.bandwidth)
           .attr('height', (d) => HEIGHT - y(d.cases))
           .attr('fill', 'grey');
+
+        this.drawChart();
       })
       .catch((error) => {
-        svg
-          .append('text')
-          .attr('x', 0)
-          .attr('y', 10)
-          .attr('fill', 'red')
-          .text('Can not display bar chart now');
+        this.svg.append('text').attr('x', 0).attr('y', 10).attr('fill', 'red').text('Can not display bar chart now');
       });
+
+    window.addEventListener('resize', () => this.drawChart());
+  }
+
+  drawChart() {
+    // reset the width
+    WIDTH = parseInt(d3.select('.BarChart-wrapper').style('width'), 10) - MARGIN.LEFT - MARGIN.RIGHT;
+
+    // set the svg dimensions
+    this.svg.attr('width', WIDTH + MARGIN.LEFT + MARGIN.RIGHT);
+
+    // Set new range for xScale
+    this.xScale.range([0, WIDTH]).padding(0.4);
+
+    // draw the new xAxis
+    this.xAxisElement.call(this.xAxisCall);
+    // this.svg.append('g').attr('transform', `translate(0, ${HEIGHT})`).call(this.xAxisCall);
+
+    // specify new properties for the bars
+    this.svg
+      .selectAll('rect')
+      .attr('x', (d) => this.xScale(d.date))
+      .attr('width', this.xScale.bandwidth);
   }
 }
