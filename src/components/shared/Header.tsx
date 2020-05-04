@@ -60,7 +60,7 @@ function Header(props) {
 
       {/* Header item */}
       <div className="Header-item">
-        <div className="menu-items">
+        {/* <div className="menu-items">
           {menuItems.map((item) => (
             <div className="menu-item" key={item.name}>
               <Link to={item.path}>{item.name}</Link>
@@ -72,7 +72,7 @@ function Header(props) {
             </IconButton>
             <Menu openMenu={openMenu} toggleMenu={handleToggleMenu} />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
