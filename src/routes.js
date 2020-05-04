@@ -6,6 +6,7 @@ import Home from './Home';
 import Donations from './components/client/donations/Donations';
 import CoronaFAQs from './components/client/CoronaFAQs';
 import Header from './components/shared/Header';
+import Footer from './components/shared/Footer';
 import history from './utils/history';
 
 ReactGA.initialize(process.env.REACT_APP_TRACKING_ID);
@@ -25,6 +26,7 @@ const routes = () => {
           <Route path="/donations" exact component={Donations} />
           <Route path="/corona-faqs" exact component={CoronaFAQs} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );
