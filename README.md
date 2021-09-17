@@ -1,5 +1,6 @@
 # Corona Virus Uganda Tracker Web App
 
+![Dashboard Screenshot](./dashboard.png)
 # Installation
 To install this web app locally on your computer, run the following commands:
 
